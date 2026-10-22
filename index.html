@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nitro Ketik – Balapan Mengetik Online</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+  <h1><span>NITRO</span> KETIK</h1>
+  <div id="toast"></div>
+
+  <!-- LAYAR 1: Login -->
+  <section id="login" class="screen active card">
+    <h2>Masuk</h2>
+    <input id="nameInput" maxlength="12" placeholder="Nama pemain" autocomplete="off">
+    <p class="muted">Pilih warna mobil</p>
+    <div id="swatches"></div>
+    <button id="loginBtn">Masuk</button>
+  </section>
+
+  <!-- LAYAR 2: Menu -->
+  <section id="menu" class="screen card">
+    <h2>Halo, <span id="hello"></span>!</h2>
+    <button id="createBtn">Buat Room</button>
+    <p class="muted">atau gabung dengan kode room</p>
+    <div class="row">
+      <input id="codeInput" maxlength="4" placeholder="KODE" autocomplete="off">
+      <button id="joinBtn">Gabung</button>
+    </div>
+    <button id="logoutBtn" class="ghost">Ganti Akun</button>
+  </section>
+
+  <!-- LAYAR 3: Lobby -->
+  <section id="lobby" class="screen card">
+    <h2>Room <b id="code"></b></h2>
+    <p class="muted">Bagikan kode atau <a href="#" id="copyLink">salin link undangan</a></p>
+    <div id="plist"></div>
+    <div id="hostCtl">
+      <label><input type="checkbox" id="botsOn" checked> Isi slot kosong dengan bot</label>
+      <button id="startBtn">Mulai Balapan</button>
+    </div>
+    <p id="waitMsg" class="muted">Menunggu host memulai balapan...</p>
+    <button id="leaveBtn" class="ghost">Keluar Room</button>
+  </section>
+
+  <!-- LAYAR 4: Game -->
+  <section id="game" class="screen">
+    <div id="wrap">
+      <div id="track"></div>
+
+      <div id="hud">
+        <div class="stat"><b id="wpm">0</b><small>KPM (kata/menit)</small></div>
+        <div class="stat"><b id="acc">100%</b><small>Akurasi</small></div>
+        <div class="stat"><b id="time">0.0s</b><small>Waktu</small></div>
+        <div class="stat"><b id="pos">-</b><small>Posisi</small></div>
+      </div>
+
+      <div id="textbox">
+        <div id="txt"></div>
+        <div id="msg"></div>
+      </div>
+
+      <div id="hint">Klik kotak teks, lalu mulai mengetik saat hitungan mundur selesai.</div>
+    </div>
+  </section>
+
+  <input id="hidden" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+
+  <!-- Hasil akhir -->
+  <div id="result">
+    <div class="card">
+      <h2 id="rtitle"></h2>
+      <p id="rstats"></p>
+      <ol id="rlist"></ol>
+      <button id="backBtn">Kembali ke Lobby</button>
+      <p id="rwait" class="muted">Menunggu host...</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
