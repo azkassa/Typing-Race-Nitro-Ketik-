@@ -383,3 +383,21 @@ input[type="text"],
   border-radius: 10px;
   font-weight: 700;
 }
+
+/* HP / layar sentuh: pindahin kotak teks ke atas biar ga ketutup keyboard */
+@media (pointer: coarse) {
+  #wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  #textbox {
+    order: -1;            /* naik ke paling atas */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #1a1f35;  /* samain dengan warna background game kamu */
+  }
+  #hint {
+    order: 5;             /* petunjuk ditaruh paling bawah */
+  }
+}
